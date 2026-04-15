@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2>Feedback Board</h2>
+<form method="post">
+    <label for="author">Author</label>
+    <input id="author" name="author" placeholder="Dit navn">
+
+    <label for="message">Message</label>
+    <textarea id="message" name="message" rows="5" placeholder="Skriv feedback her"></textarea>
+
+    <button type="submit">Post feedback</button>
+</form>
+
+<h3>Messages</h3>
+{% for entry in entries %}
+<div class="card">
+    <strong>{{ entry['author'] }}</strong> — {{ entry['created_at'] }}<br>
+    <!-- Intentionally vulnerable: message is rendered as trusted HTML -->
+    <div>{{ entry['message']|safe }}</div>
+</div>
+{% endfor %}
+{% endblock %}

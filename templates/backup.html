@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2>Backup Utility</h2>
+<form method="post">
+    <label for="target">Path to back up</label>
+    <input id="target" name="target" value="{{ target }}" placeholder="fx files">
+    <button type="submit">Run backup</button>
+</form>
+
+<p>Normal brug: <code>files</code> eller <code>uploads</code>.</p>
+
+{% if command %}
+    <p><strong>Executed command:</strong></p>
+    <pre>{{ command }}</pre>
+{% endif %}
+
+{% if output is not none %}
+    <p><strong>Command output:</strong></p>
+    <pre>{{ output }}</pre>
+{% endif %}
+{% endblock %}

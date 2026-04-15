@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="card">
+    <h2>Bevidst sårbar undervisningsapp</h2>
+    <p>Denne Flask-applikation er lavet til session 11 om sikkerhedstest og sikker fejlhåndtering.</p>
+    <p class="danger"><strong>Vigtigt:</strong> Kør den kun lokalt i et kontrolleret testmiljø. Den er med vilje usikker.</p>
+</div>
+
+<div class="card">
+    <h3>Fokusområder</h3>
+    <ul>
+        <li><strong>SQL Injection:</strong> <code>/reports</code></li>
+        <li><strong>XSS:</strong> <code>/feedback</code></li>
+        <li><strong>Insecure File Upload:</strong> <code>/upload</code></li>
+        <li><strong>Command Injection:</strong> <code>/backup</code></li>
+        <li><strong>Path Traversal:</strong> <code>/download?filename=...</code></li>
+        <li><strong>Verbose error handling:</strong> <code>/crash</code></li>
+    </ul>
+</div>
+{% endblock %}

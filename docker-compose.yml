@@ -1,0 +1,11 @@
+services:
+  securehrm:
+    build: .
+    container_name: securehrm-demo
+    ports:
+      - "5000:5000"
+    volumes:
+      - ./uploads:/app/uploads
+      - ./backups:/app/backups
+    environment:
+      - FLASK_ENV=development

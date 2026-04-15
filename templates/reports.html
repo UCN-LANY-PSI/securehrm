@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2>Employee Reports</h2>
+<form method="post">
+    <label for="department">Department</label>
+    <input id="department" name="department" value="{{ department }}" placeholder="fx HR eller IT">
+    <button type="submit">Run report</button>
+</form>
+
+<p>Prøv almindelige værdier som <code>HR</code> eller <code>IT</code>.</p>
+
+{% if query %}
+    <p><strong>Executed query:</strong></p>
+    <pre>{{ query }}</pre>
+{% endif %}
+
+{% if error %}
+    <p class="danger"><strong>Error:</strong> {{ error }}</p>
+{% endif %}
+
+{% if rows %}
+<table>
+    <tr>
+        <th>ID</th><th>Name</th><th>Department</th><th>Email</th><th>Salary</th>
+    </tr>
+    {% for row in rows %}
+    <tr>
+        <td>{{ row['id'] }}</td>
+        <td>{{ row['name'] }}</td>
+        <td>{{ row['department'] }}</td>
+        <td>{{ row['email'] }}</td>
+        <td>{{ row['salary'] }}</td>
+    </tr>
+    {% endfor %}
+</table>
+{% endif %}
+{% endblock %}
